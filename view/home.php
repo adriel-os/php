@@ -11,12 +11,18 @@ $entregas[] = array('id'=>2, 'titulo'=>'ISA', 'responsavel'=>'ADR', 'data_entreg
         <div class="main">
             <div class="navbar">
                 <div class="item"><a href="?logout=true">Logout</a></div>
-                <?php 
+            </div>
+            <div class="entregas">
+            <?php 
                     if(isset($entregas) and count($entregas) > 0)
                     {
                         foreach($entregas as $index=>$entrega)
                         {
-                            echo "<div>$entrega[id] - $entrega[titulo]</div>";
+                            ?>
+                            <div class="item">
+                                <?="<div>$entrega[id]</div><div>$entrega[titulo]</div>";?>
+                            </div>
+                            <?php
                         }
                     }
                 ?>
