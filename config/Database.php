@@ -12,7 +12,7 @@ class config_Database
 			self::$instance['hostname'] 	= "localhost";
 			self::$instance['dbname']		= "entregas";
 			self::$instance['user']			= "postgres";
-			self::$instance['password']		= "root";
+			self::$instance['password']		= "postgres";
 			self::$instance['tabela_usuario'] 	='usuarios';
          
         }

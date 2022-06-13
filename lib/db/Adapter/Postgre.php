@@ -16,7 +16,6 @@ class Db_Adapter_Postgre implements Db_Adapter_Interface {
                 
                 //echo $dsn . $config['user'] . $config['password'] ;
 				self::$instance = new PDO($dsn, $config['user'], $config['password']);
-                var_dump($this->instance::getAttribute());
             } 
 			catch (PDOException $e)
 			{
