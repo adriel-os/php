@@ -10,6 +10,6 @@ function classLoader($class_name)
     require_once $class_name;
 }
 
-spl_autoload_register('classLoader')
+spl_autoload_register('classLoader');
 
 ?>

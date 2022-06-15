@@ -7,6 +7,8 @@ class Db_Connection {
         switch ($adapter['adapter']) 
 		{
 			case "postgres":
+            case "postgre":
+            case "pgsql":
 				return Db_Adapter_Postgre::getConnection();
             break;
         }
