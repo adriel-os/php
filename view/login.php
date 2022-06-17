@@ -8,7 +8,7 @@ echo $err['msg'];
         <title>Autenticação de usuário</title>
     </head>
     <body>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" name="auth" >
+        <form method="post" action="/auth" name="auth" >
             <label>Login:</label>
             <input type="text" name="login"/>
             <label>Senha:</label>

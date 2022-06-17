@@ -2,12 +2,13 @@
 
 $auth = Auth::getInstance();
 
+
 if(isset($_GET['logout']) and $_GET['logout'] == 'true')
 {
     $auth->logout();
     require_once 'view/login.php';
 }
-var_dump( $auth->isLogged());
+
 if($auth->isLogged())
 {
   
@@ -18,9 +19,9 @@ else
     //var_dump($_SERVER);
     if(isset($_POST['login']) and isset($_POST['password']))
     {
-        echo 'oko';
-        // realizar login aqui
-        $authAdapter = new Auth_Adapter_Db($db);
+
+        // Realizar login Aqui
+        $authAdapter = new Auth_Adapter_Db();
         $authAdapter->setUser($_POST['login']);
         $authAdapter->setPassword($_POST['password']);
 

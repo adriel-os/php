@@ -7,5 +7,7 @@ session_start();
 require_once 'Loader.php';
 require_once 'Router.php';
 
+// instanciando as rotas
+$rotas = new Router($_SERVER);
 
 //var_dump($db);
