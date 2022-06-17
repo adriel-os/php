@@ -1,4 +1,7 @@
 <?php
+// Leia-me: 
+// para usar este roteador é necessário 
+// aplicar o .htaccess redirecionando as requisições para /index.php 
 
 class Router
 {
