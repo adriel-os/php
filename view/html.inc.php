@@ -1,5 +1,5 @@
 <?php
-
+config_Database::getConfig()
 ?>
 <!doctype html>
 <html>

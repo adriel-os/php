@@ -1,5 +1,10 @@
 <?php
 
+//  autoloder pattern para classes 
+//  nome da classe deve conter o mesmo
+//  mapeamento da pasta e nome do aquivo
+//  A classe "Model_Usuario" é igual a "model/usuario.php"
+
 function classLoader($class_name) 
 {
     if(strpos($class_name, '_') !== false)

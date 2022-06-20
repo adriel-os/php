@@ -22,7 +22,11 @@ class Model_Usuario extends Model_Abstract{
     {
         $this->nome = $valor;
     }
-
+    
+    function set_senha($valor)
+    {
+        $this->senha = sha1($valor);
+    }
     
 
 }

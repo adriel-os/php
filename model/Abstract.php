@@ -40,7 +40,7 @@ abstract class Model_Abstract
     {
         if(isset($this->id))
         {
-            echo 'O ID do Objeto já está definido, não é possível fazer novo insert;';
+            $this->msg[]=  'O ID do Objeto já está definido, não é possível fazer novo insert;';
             return false;
         }
         
@@ -127,11 +127,12 @@ abstract class Model_Abstract
 		}
 		else
 		{
-			echo 'Impossível realizar update de ' . $this->tabela . ' quando o ID não estiver setado.';
+			$this->msg[]='Impossível realizar update de ' . $this->tabela . ' quando o ID não estiver setado.';
 		}
 
 		$sql = 'update ' . $this->tabela . ' set ' . $valores . ' where id = '. $this->id .';';
-		echo $sql;
+		$this->sql = $sql;
+
 			$query = $this->db->prepare($sql);
 
             if($query->execute())
@@ -140,7 +141,7 @@ abstract class Model_Abstract
 			}
 			else
 			{
-				echo 'Erro ao realizar updade de ' . $this->tabela . ' id = '. $this->id;
+				$this->msg[] = 'Erro ao realizar updade de ' . $this->tabela . ' id = '. $this->id;
 			}
 	}
 
@@ -159,7 +160,7 @@ abstract class Model_Abstract
 			}
 			else
 			{
-				echo 'Erro ao realizar delete de ' . $this->tabela . ' id = '. $this->id;
+				$this->msg[] = 'Erro ao realizar delete de ' . $this->tabela . ' id = '. $this->id;
 			}
 		}
 	}
@@ -191,6 +192,7 @@ abstract class Model_Abstract
                     //Se não tiver metodo "set_Nomedoatributo" implementado, então, aplicar o valor direto
                     if(in_array($metodo, $this->metodos))
                     {
+						//echo $metodo;
                         $this->$metodo($dataset[$attr]);
                     }
                     else
@@ -201,7 +203,7 @@ abstract class Model_Abstract
 					if($attr !== 'id')
 					{
                     	// se não encontrar o atributo da classe no ArrayKey do dataset, então apresentar a mensagem.
-                    	echo '</br>O atributo "'.$attr.'" da Classe "'. get_called_class() .'", não foi encontrado no dataset.</br>';
+                    	$this->msg[] =  '</br>O atributo "'.$attr.'" da Classe "'. get_called_class() .'", não foi encontrado no dataset.</br>';
 					}
                 }
              }
@@ -327,17 +329,4 @@ abstract class Model_Abstract
 		
 	}
 	
-	
-	
-	public function dump()
-	{
-		echo '<div style="font-family:verdana;"><b style="font-size:12pt">'.get_called_class().'</><br/>{<br/>';
-		foreach($this->get_vals() as $attr => $val)
-		{
-			echo '<b style="margin-left:20pt;font-size:9pt">'. $attr . '</b> <i style="color:red;font-size:9pt">( '. gettype($val) .')</i><b style="font-size:9pt">:</b><b style="color:blue;font-size:9pt"><pre style="margin:0px;padding-left:30pt">';
-			var_dump($val);
-			echo '</pre></b><br/>';
-		}
-		echo '}</div><br/>';
-	}
 }
