@@ -2,19 +2,11 @@
 
 $auth = Auth::getInstance();
 
-
-if(isset($_GET['logout']) and $_GET['logout'] == 'true')
-{
-    $auth->logout();
-    require_once 'view/login.php';
-}
-
 if($auth->isLogged())
 {
-  
-    require_once 'view/home.php';
+    header("location: /usuario");
 }
 else
 {  
-    require_once 'view/login.php';
+    new view_default_auth();
 }

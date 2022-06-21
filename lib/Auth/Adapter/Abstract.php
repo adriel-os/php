@@ -23,7 +23,6 @@ abstract class Auth_Adapter_Abstract {
 		$no_chars = array("!", "/'", '"', ".", "-", " ", "&", ";", "%", "|");
 		$senha=str_replace($no_chars, '', $senha);
         $this->password = sha1($senha);
-        echo  $this->password;
     }
 
     abstract public function autenticate();

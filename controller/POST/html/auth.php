@@ -12,13 +12,16 @@ $auth = Auth::getInstance();
         if($authAdapter->autenticate())
         {
             //se der certo então grava em $_SESSION
+            
             $auth->write($authAdapter);
-            require_once 'view/home.php';
+            header("location: /usuario");
+      
             die();
         }
         else
         {
             $err = array('msg'=>'Usuário ou senha invalidos!');
-            require_once 'view/login.php';
+            
+            new view_default_auth($err);
         }
     }
